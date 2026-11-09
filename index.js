@@ -1,10 +1,15 @@
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
 
 const PORT = process.env.PORT || 3000;
-const DB_PATH = path.join(__dirname, 'db.json');
+const SEED_PATH = path.join(__dirname, 'db.json');
+
+// Vercel's filesystem is read-only except for /tmp, which is temporary and per-instance.
+const DB_PATH = process.env.VERCEL ? path.join(os.tmpdir(), 'db.json') : SEED_PATH;
+if (!fs.existsSync(DB_PATH)) fs.copyFileSync(SEED_PATH, DB_PATH);
 
 // The file is the only store, so hand edits and API writes never overwrite each other.
 const readDb = () => JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
@@ -131,9 +136,10 @@ resourceRouter.delete('/:id', (req, res) => {
 });
 
 const app = express();
+app.set('trust proxy', true); // Vercel terminates HTTPS, so req.protocol must come from its proxy.
 app.use(cors({ exposedHeaders: ['X-Total-Count'] }));
 app.use(express.json());
-app.use('/images', express.static(path.join(__dirname, 'public')));
+app.use('/images', express.static(path.join(__dirname, 'public', 'images'))); // Vercel serves public/ itself.
 
 app.get('/', (req, res) => {
   sendData(res, { resources: resourceNames(readDb()).map((name) => `/${name}`) });
