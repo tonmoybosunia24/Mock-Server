@@ -1,0 +1,136 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "author": { "name": "Maya Rahman", "avatar": "/images/avatars/1.png" },
+      "category": "Travel",
+      "title": "Above the blue fjord",
+      "body": "Two hours of climbing and every step was worth it. The water down there looks painted.",
+      "image": "/images/posts/1.jpg",
+      "likes": 1284,
+      "comments": 76,
+      "created_at": "2026-11-08T18:20:00Z"
+    },
+    {
+      "id": 2,
+      "author": { "name": "Arif Hasan", "avatar": "/images/avatars/2.png" },
+      "category": "Nature",
+      "title": "When the rocks catch fire",
+      "body": "The last ten minutes of sunlight turned this whole ridge orange. No filter needed.",
+      "image": "/images/posts/2.jpg",
+      "likes": 932,
+      "comments": 41,
+      "created_at": "2026-11-08T14:05:00Z"
+    },
+    {
+      "id": 3,
+      "author": { "name": "Sofia Lind", "avatar": "/images/avatars/3.png" },
+      "category": "Road Trip",
+      "title": "The road that disappears",
+      "body": "Windows down, green cliffs on both sides and nowhere to be until tomorrow.",
+      "image": "/images/posts/3.jpg",
+      "likes": 2147,
+      "comments": 118,
+      "created_at": "2026-11-08T09:40:00Z"
+    },
+    {
+      "id": 4,
+      "author": { "name": "Noah Patel", "avatar": "/images/avatars/4.png" },
+      "category": "Adventure",
+      "title": "Standing still before the storm",
+      "body": "The sky was moving faster than the waves. Sometimes you just stop and breathe it in.",
+      "image": "/images/posts/4.jpg",
+      "likes": 763,
+      "comments": 29,
+      "created_at": "2026-11-07T21:15:00Z"
+    },
+    {
+      "id": 5,
+      "author": { "name": "Lena Kim", "avatar": "/images/avatars/5.png" },
+      "category": "Nature",
+      "title": "Morning fog in black and white",
+      "body": "The forest woke up slowly today. The mist did not lift until almost noon.",
+      "image": "/images/posts/5.jpg",
+      "likes": 588,
+      "comments": 17,
+      "created_at": "2026-11-07T16:30:00Z"
+    },
+    {
+      "id": 6,
+      "author": { "name": "Omar Aziz", "avatar": "/images/avatars/6.png" },
+      "category": "Wildlife",
+      "title": "Coming in to land",
+      "body": "Waited a long time for this one. Those wings are wider than I am tall.",
+      "image": "/images/posts/6.jpg",
+      "likes": 1642,
+      "comments": 93,
+      "created_at": "2026-11-07T08:50:00Z"
+    },
+    {
+      "id": 7,
+      "author": { "name": "Maya Rahman", "avatar": "/images/avatars/1.png" },
+      "category": "Pets",
+      "title": "Camping is hard, apparently",
+      "body": "He lasted five minutes outside before demanding the good blanket.",
+      "image": "/images/posts/7.jpg",
+      "likes": 4821,
+      "comments": 312,
+      "created_at": "2026-11-06T19:25:00Z"
+    },
+    {
+      "id": 8,
+      "author": { "name": "Arif Hasan", "avatar": "/images/avatars/2.png" },
+      "category": "Adventure",
+      "title": "Found the end of the rainbow",
+      "body": "Soaked from head to toe within a minute, and I would do it again right now.",
+      "image": "/images/posts/8.jpg",
+      "likes": 3390,
+      "comments": 204,
+      "created_at": "2026-11-06T11:10:00Z"
+    },
+    {
+      "id": 9,
+      "author": { "name": "Sofia Lind", "avatar": "/images/avatars/3.png" },
+      "category": "Adventure",
+      "title": "Our home for the night",
+      "body": "Minus twelve outside, hot tea inside, and the quietest view I have ever had.",
+      "image": "/images/posts/9.jpg",
+      "likes": 1075,
+      "comments": 58,
+      "created_at": "2026-11-05T17:45:00Z"
+    },
+    {
+      "id": 10,
+      "author": { "name": "Noah Patel", "avatar": "/images/avatars/4.png" },
+      "category": "Nature",
+      "title": "Greener than any photo can show",
+      "body": "You can hear this waterfall long before the trees open up and let you see it.",
+      "image": "/images/posts/10.jpg",
+      "likes": 1458,
+      "comments": 64,
+      "created_at": "2026-11-05T07:35:00Z"
+    },
+    {
+      "id": 11,
+      "author": { "name": "Lena Kim", "avatar": "/images/avatars/5.png" },
+      "category": "Travel",
+      "title": "A castle above the trees",
+      "body": "It really does look like the page of a storybook, even on a cloudy afternoon.",
+      "image": "/images/posts/11.jpg",
+      "likes": 2763,
+      "comments": 147,
+      "created_at": "2026-11-04T15:20:00Z"
+    },
+    {
+      "id": 12,
+      "author": { "name": "Omar Aziz", "avatar": "/images/avatars/6.png" },
+      "category": "Travel",
+      "title": "Slow day by the river",
+      "body": "Granite walls, tall pines and absolutely no phone signal. Exactly what I needed.",
+      "image": "/images/posts/12.jpg",
+      "likes": 1196,
+      "comments": 52,
+      "created_at": "2026-11-04T06:55:00Z"
+    }
+  ]
+}
