@@ -95,8 +95,8 @@ async function insertWithNextId(collection, fields) {
   for (let attempt = 1; ; attempt++) {
     const id = await nextId(collection);
     try {
-      await collection.insertOne({ ...fields, id });
-      return { ...fields, id };
+      await collection.insertOne({ id, ...fields });
+      return { id, ...fields };
     } catch (err) {
       if (err.code !== 11000 || attempt === MAX_CREATE_ATTEMPTS) throw err;
     }
@@ -114,6 +114,34 @@ const requireObjectBody = (req, res, next) => {
   const { _id, id, ...fields } = withImagePaths(body, req);
   req.fields = fields;
   next();
+};
+
+const isText = (value) => typeof value === 'string' && value.trim() !== '';
+const textOrNull = (value) => (isText(value) ? value.trim() : null);
+
+// Only known fields are stored; counters and the timestamp are always set by the server.
+const createPost = async (req, res) => {
+  const { author, category, title, body, image } = req.fields;
+
+  const invalid = Object.entries({ 'author.name': author?.name, category, title, body })
+    .filter(([, value]) => !isText(value))
+    .map(([field]) => field);
+  if (invalid.length > 0) {
+    return sendError(res, 400, `Missing or invalid fields: ${invalid.join(', ')}`);
+  }
+
+  const post = {
+    author: { name: author.name.trim(), avatar: textOrNull(author.avatar) },
+    category: category.trim(),
+    title: title.trim(),
+    body: body.trim(),
+    image: textOrNull(image),
+    likes: 0,
+    comments: 0,
+    created_at: new Date().toISOString().replace(/\.\d{3}Z$/, 'Z'),
+  };
+
+  sendData(res, await insertWithNextId(db.collection('posts'), post), 201);
 };
 
 const resourceRouter = express.Router({ mergeParams: true });
@@ -175,6 +203,7 @@ app.get('/', async (req, res) => {
   sendData(res, { resources: (await resourceNames()).map((name) => `/${name}`) });
 });
 
+app.post('/posts', requireObjectBody, createPost);
 app.use('/:resource', resourceRouter);
 
 app.use((req, res) => sendError(res, 404, 'Not found'));
